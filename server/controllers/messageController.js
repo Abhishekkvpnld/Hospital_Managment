@@ -5,7 +5,6 @@ import ErrorHandler from "../middlewares/errorMiddleware.js";
 export const sendMessage = catchAsyncError(async (req, res, next) => {
   const { firstName, lastName, email, phone, message } = req.body;
 
-  try {
     if (!firstName)
       return next(new ErrorHandler("Please Enter First Name!", 400));
     if (!lastName)
@@ -22,12 +21,4 @@ export const sendMessage = catchAsyncError(async (req, res, next) => {
       error: false,
       message: "Messsage Send Successfully✅",
     });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      success: false,
-      error: true,
-      message: error.message,
-    });
-  }
 });
