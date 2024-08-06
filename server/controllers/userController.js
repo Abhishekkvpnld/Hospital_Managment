@@ -116,3 +116,23 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
 
   generateToken(admin, "New Admin Registered Successfully✅", 200, res);
 });
+
+export const getAllDoctors = catchAsyncError(async (req, res, next) => {
+  const allDoctors = await UserModel.find({ role: "Doctor" });
+
+  res.status(200).json({
+    success: true,
+    error: false,
+    doctors: allDoctors,
+  });
+});
+
+export const getUserDetails = catchAsyncError(async (req, res, next) => {
+  const user = req.user;
+
+  res.status(200).json({
+    success: true,
+    error: false,
+    user: user,
+  });
+});
