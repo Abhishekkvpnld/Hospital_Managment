@@ -168,12 +168,12 @@ export const patientLogout = catchAsyncError(async (req, res, next) => {
 });
 
 export const addNewDoctor = catchAsyncError(async (req, res, next) => {
-  if (req.files || Object.keys(req.files).length === 0) {
+  if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Doctor Avatar Required ❌", 400));
   }
 
   const { docAvatar } = req.files;
-  const allowedFormats = ["/image/png", "/image/jpeg", "/image/webp"];
+  const allowedFormats = ["image/png", "image/jpeg", "image/webp"];
 
   if (!allowedFormats.includes(docAvatar.mimetype)) {
     return next(new ErrorHandler("File Format Not Supported ❌", 400));
@@ -213,9 +213,11 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
     );
   }
 
-  const cloudinaryResponse = await cloudinary.UploadStream.upload(
-    docAvatar.tempFilePath
-  );
+  const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+    docAvatar.tempFilePath,{
+      folder: "doctors", 
+      upload_preset: "hospital-managment" 
+    });
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
