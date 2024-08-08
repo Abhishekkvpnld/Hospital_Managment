@@ -9,6 +9,7 @@ import cloudinaryConfig from "./config/cloudinary.js";
 import messageRoute from "./routes/messageRoute.js";
 import {errorMiddlewares} from "./middlewares/errorMiddleware.js"
 import userRoute from "./routes/userRoute.js";
+import appointmentRoute from "./routes/appointmentRoute.js";
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use(fileUpload({
 //Routes
 app.use("/api/v1/message",messageRoute);
 app.use("/api/v1/user",userRoute);
+app.use("/api/v1/appointment",appointmentRoute);
 
 
 app.get("/", (req, res) => {
