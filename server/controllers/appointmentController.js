@@ -47,7 +47,7 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Doctor Not Found ❌", 404));
   }
 
-  if (checkDoctor.length > 0) {
+  if (checkDoctor.length > 1) {
     return next(
       "Doctor Conflict...!, Please Contact Through Email or Phone❌",
       404
@@ -80,5 +80,58 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
     success: true,
     error: false,
     message: "Appointment Send Successfully✅",
+  });
+});
+
+export const getAllAppointments = catchAsyncError(async (req, res, next) => {
+  const allAppointments = await AppointmentModel.find({});
+
+  res.status(200).json({
+    success: true,
+    error: false,
+    data: allAppointments,
+  });
+});
+
+export const updateAppointmentStatus = catchAsyncError(
+  async (req, res, next) => {
+    const { id } = req.params;
+    let appointment = await AppointmentModel.findById(id);
+    if (!appointment) {
+      return next(new ErrorHandler("Appointment Not Found❌", 404));
+    }
+
+    let updatedAppointment = await AppointmentModel.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      error: false,
+      message: "Appointment Status Updated✅",
+      data: updatedAppointment,
+    });
+  }
+);
+
+export const deleteAppointment = catchAsyncError(async (req, res, next) => {
+  const { id } = req.params;
+  let appointment = await AppointmentModel.findById(id);
+  if (!appointment) {
+    return next(new ErrorHandler("Appointment Not Found❌", 404));
+  }
+
+  await appointment.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    error: false,
+    message: "Appointment Deleted Successfully🗑️✅",
   });
 });

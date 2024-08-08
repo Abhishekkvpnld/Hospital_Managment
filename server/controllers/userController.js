@@ -214,10 +214,12 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
   }
 
   const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-    docAvatar.tempFilePath,{
-      folder: "doctors", 
-      upload_preset: "hospital-managment" 
-    });
+    docAvatar.tempFilePath,
+    {
+      folder: "doctors",
+      upload_preset: "hospital-managment",
+    }
+  );
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
