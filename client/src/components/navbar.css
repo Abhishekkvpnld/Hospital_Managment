@@ -1,0 +1,56 @@
+.nav_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+    font-size: large;
+    font-weight: bold;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding-right: 50px;
+}
+
+.showMenu {
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav_btn {
+  padding: 8px 15px;
+  border:none;
+  border-radius: 5px;
+  font-size: small;
+  background-color: rgb(9, 18, 141);
+  color: rgb(213, 207, 207);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.nav_btn:hover{
+    background-color: green;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+}
+
+.link:hover{
+    color: red;
+}
