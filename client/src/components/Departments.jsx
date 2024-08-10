@@ -4,44 +4,44 @@ import "./department.css"
 
 const Departments = () => {
 
-        const departmentsArray = [
-            {
-                name: "Pediatrics",
-                imageUrl: "/departments/pedia.jpg",
-            },
-            {
-                name: "Orthopedics",
-                imageUrl: "/departments/ortho.jpg",
-            },
-            {
-                name: "Cardiology",
-                imageUrl: "/departments/cardio.jpg",
-            },
-            {
-                name: "Neurology",
-                imageUrl: "/departments/neuro.jpg",
-            },
-            {
-                name: "Oncology",
-                imageUrl: "/departments/onco.jpg",
-            },
-            {
-                name: "Radiology",
-                imageUrl: "/departments/radio.jpg",
-            },
-            {
-                name: "Physical Therapy",
-                imageUrl: "/departments/therapy.jpg",
-            },
-            {
-                name: "Dermatology",
-                imageUrl: "/departments/derma.jpg",
-            },
-            {
-                name: "ENT",
-                imageUrl: "/departments/ent.jpg",
-            },
-        ];
+    const departmentsArray = [
+        {
+            name: "Pediatrics",
+            imageUrl: "/departments/pedia.jpg",
+        },
+        {
+            name: "Orthopedics",
+            imageUrl: "/departments/ortho.jpg",
+        },
+        {
+            name: "Cardiology",
+            imageUrl: "/departments/cardio.jpg",
+        },
+        {
+            name: "Neurology",
+            imageUrl: "/departments/neuro.jpg",
+        },
+        {
+            name: "Oncology",
+            imageUrl: "/departments/onco.jpg",
+        },
+        {
+            name: "Radiology",
+            imageUrl: "/departments/radio.jpg",
+        },
+        {
+            name: "Physical Therapy",
+            imageUrl: "/departments/therapy.jpg",
+        },
+        {
+            name: "Dermatology",
+            imageUrl: "/departments/derma.jpg",
+        },
+        {
+            name: "ENT",
+            imageUrl: "/departments/ent.jpg",
+        },
+    ];
 
     const responsive = {
         extraLarge: {
@@ -70,7 +70,7 @@ const Departments = () => {
     return (
         <div className='container_department'>
             <h2>Departments</h2>
-            <Carousel responsive={responsive}>
+            <Carousel responsive={responsive} removeArrowOnDeviceType={["medium", "small"]}>
                 {
                     departmentsArray?.map((item, index) => {
                         return (
@@ -81,7 +81,7 @@ const Departments = () => {
                         )
                     })
                 }
-            </Carousel>;
+            </Carousel>
         </div>
     )
 }

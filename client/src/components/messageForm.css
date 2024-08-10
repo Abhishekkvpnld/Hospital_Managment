@@ -1,0 +1,92 @@
+.message_container {
+    height: 100%;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.message_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.message_input {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 300px;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.message_text {
+  width: 500px;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;
+}
+
+.message_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: slategray;
+  border: 1px solid green;
+  color: white;
+  background-color: blue;
+}
+
+.btn:hover {
+  background-color: green;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {  
+    
+      .input {
+        width: 150px;
+      }
+    
+      .message_text{
+        width: 300px;
+      }  
+}
+
+@media only screen and (max-width: 320px) {
+
+    .message_title{
+        font-size: x-large;
+    }
+
+  .message_input {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  .input {
+    width: 200px;
+    margin: 0%;
+  }
+
+  .message_text{
+    width: 200px;
+  }
+}
