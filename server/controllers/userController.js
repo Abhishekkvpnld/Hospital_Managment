@@ -163,7 +163,7 @@ export const patientLogout = catchAsyncError(async (req, res, next) => {
     .json({
       success: true,
       error: false,
-      message: "User Log out Successfully ✅",
+      message: "User Logged out Successfully ✅",
     });
 });
 

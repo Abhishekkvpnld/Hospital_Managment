@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import "./login.css";
 import { context } from "../main";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BaseUrl } from "../utils/api";
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -15,10 +18,25 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, confirmPassword, role: "Patient" }, { withCredentials: true });
+
+      if (response?.data?.success) {
+        toast.success(response?.data?.message);
+        setIsAuthenticated(true);
+        navigate("/");
+      }
+
+    } catch (error) {
+      console.log(error?.message);
+      toast.error(error?.response?.data?.message);
+    }
+
   }
 
-  if (!isAuthenticated) {
-
+  if (isAuthenticated) {
+    return navigate("/")
   }
 
   return (
@@ -32,7 +50,7 @@ const Login = () => {
           <label htmlFor="email">Email</label>
           <input
             className="login_inp"
-            type="text"
+            type="email"
             placeholder="Enter Email..."
             name="email"
             id="email"
@@ -45,7 +63,7 @@ const Login = () => {
           <label htmlFor="password">Password</label>
           <input
             className="login_inp"
-            type="text"
+            type="password"
             placeholder="Enter Password..."
             name="password"
             id="password"
@@ -58,7 +76,7 @@ const Login = () => {
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             className="login_inp"
-            type="text"
+            type="password"
             placeholder="Enter Confirm Password..."
             name="confirmPassword"
             id="confirmPassword"

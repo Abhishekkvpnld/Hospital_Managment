@@ -20,7 +20,6 @@ const Navbar = () => {
             const response = await axios.get(`${BaseUrl}/user/patient/logout`, { withCredentials: true });
 
             if (response?.data?.success) {
-                console.log(response.data)
                 toast.success(response?.data?.message);
                 setIsAuthenticated(false);
             }

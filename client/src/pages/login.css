@@ -18,6 +18,7 @@
   align-items: center;
 }
 
+
 .login_inp {
   padding: 8px;
   border-radius: 3px;
@@ -25,7 +26,7 @@
   width: 400px;
 }
 
-.login_btn {
+.signup_btn {
   margin: 5px;
 }
 
@@ -52,3 +53,18 @@
     background-color: rgb(19, 119, 19);
     cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+    
+  }
+  
+  @media (max-width: 576px) {
+    .login_inp {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid grey;
+        width: 250px;
+      }
+      
+    }
