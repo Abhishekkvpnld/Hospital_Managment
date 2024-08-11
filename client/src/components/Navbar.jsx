@@ -34,17 +34,17 @@ const Navbar = () => {
     return (
         <nav className="nav_container">
 
-            <div className="logo">Health Center</div>
+            <div className="logo">HealthCare</div>
 
             <div className={show ? "navLinks showMenu" : 'navLinks'}>
 
                 <div className="links">
-                    <Link className="link" to={"/home"}>HOME</Link>
+                    <Link className="link" to={"/"}>HOME</Link>
                     <Link className="link" to={"/appointment"}>APPOINTMENT</Link>
                     <Link className="link" to={"/about"}>ABOUT US</Link>
                 </div>
 
-                {!isAuthenticated ? (<button className="nav_btn" onClick={handleLogOut}>LOGOUT</button>) : (<button className="nav_btn" onClick={() => navigate("/login")}>LOGIN</button>)}
+                {isAuthenticated ? (<button className="nav_btn" onClick={handleLogOut}>LOGOUT</button>) : (<button className="nav_btn" onClick={() => navigate("/login")}>LOGIN</button>)}
 
             </div>
         </nav>

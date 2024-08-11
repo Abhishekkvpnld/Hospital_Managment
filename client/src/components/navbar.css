@@ -49,6 +49,7 @@
     text-decoration: none;
     color: black;
     font-size: medium;
+    text-align: center;
 }
 
 .link:hover{
