@@ -1,17 +1,17 @@
 .biography_container {
+  width: 100%;
   height: 100%;
   background-color: white;
   padding: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .title {
   font-size: 50px;
-  font-weight: 800;
-  color: transparent;
+  font-weight: 700;
+  color: black;
   text-align: left;
-  padding-left: 60px;
-  -webkit-text-stroke: 3px rgb(7, 72, 107); 
+  /* -webkit-text-stroke: 3px rgb(7, 72, 107);  */
 }
 
 .content {
@@ -23,10 +23,18 @@
 .banner_description {
   width: 40%;
   font-size: larger;
+  color: rgb(122, 72, 16);
+}
+
+.img_div{
+  width: 100px;
+  height: 200px;
 }
 
 .img {
-  width: 100%;
+
+  object-fit: cover;
+  width: 200px;
   height: 100%;
 }
 

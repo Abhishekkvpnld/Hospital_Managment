@@ -1,4 +1,5 @@
-.signup_container {
+.appointment_container {
+  margin-top: 50px;
   height: 100vh;
   display: flex;
   gap: 10px;
@@ -7,11 +8,11 @@
   align-items: center;
 }
 
-.signup_title {
+.appointment_title {
   color: rgb(52, 55, 55);
 }
 
-.signup_form {
+.appointment_form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -19,7 +20,7 @@
   align-items: center;
 }
 
-.signup_div_category {
+.appointment_div_category {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,34 +28,49 @@
   gap: 10px;
 }
 
-.signup_inp {
+.appointment_inp {
   padding: 8px;
   border-radius: 3px;
   border: 1px solid grey;
   width: 300px;
 }
 
-.signup_section {
-  width: 308px;
+.appointment_section {
+  width: 300px;
   background-color: rgb(231, 234, 234);
 }
 
-.signup_dob {
-  width: 308px;
+.appointment_dob {
+  width: 300px;
 }
 
-.signup_inp_div {
+.appointment_inp_div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
 
-.signup_inp_div label {
+.appointment_inp_div label {
   font-weight: 500;
 }
 
-.signup_btn {
+.appointment_address_inp_div {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.appointment_address_inp {
+  resize: none;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+}
+
+.appointment_btn {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -62,24 +78,25 @@
   color: white;
 }
 
-.signup_btn:hover {
+.appointment_btn:hover {
   background-color: rgb(19, 119, 19);
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .signup_btn{
-    margin-right: 170px;
+  .appointment_btn {
+    margin-right: 50px;
+  }
+
+  .appointment_form {
+    margin-top: 60px;
+  }
+
+  .appointment_inp {
+    width: 250px;
   }
 }
 
-@media (max-width: 576px) {
+@media only screen and (max-width: 320px) {
 
-  .signup_btn{
-    margin-right: 80px;
-  }
-
-  .signup_inp {
-    width: 250px;
-  }
 }

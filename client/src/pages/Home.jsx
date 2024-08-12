@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 
 const Home = () => {
     return (
-        <div>
+        <div style={{height:"100vh"}}>
             <Institute title={"Welcome to GlobalCare Medical Institute || Excellence in Healthcare Education and Innovation"} imageUrl={"./man.gif"} />
             <Biography title={"Biography"} imgUrl={"/hospital.jpg"} />
             <Departments />

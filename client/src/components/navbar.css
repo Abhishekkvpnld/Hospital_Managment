@@ -25,7 +25,7 @@
 .links {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 30px;
 }
 
@@ -34,8 +34,8 @@
   border:none;
   border-radius: 5px;
   font-size: small;
-  background-color: rgb(9, 18, 141);
-  color: rgb(213, 207, 207);
+  background-color: rgb(137, 119, 14);
+  color: white;
   font-weight: bolder;
   cursor: pointer;
 }

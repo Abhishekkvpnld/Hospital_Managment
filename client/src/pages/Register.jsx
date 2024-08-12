@@ -24,8 +24,6 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    console.log(gender)
-
     try {
 
       const response = await axios.post(`${BaseUrl}/user/patient/register`, { firstName, lastName, email, phone, dob, gender, password, confirmPassword, role: "Patient" }, { withCredentials: true });
