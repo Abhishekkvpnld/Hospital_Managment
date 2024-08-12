@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import "./appointment.css"
 import axios from "axios";
 import { BaseUrl } from "../utils/api";
-import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AppointmentForm = () => {
+
+    const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -36,7 +38,6 @@ const AppointmentForm = () => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-
         const fetchDoctors = async () => {
             try {
                 const response = await axios.get(`${BaseUrl}/user/doctors`, { withCredentials: true });
@@ -55,41 +56,30 @@ const AppointmentForm = () => {
         try {
             const hasVisitedBoolean = Boolean(hasVisited);
 
-            console.log(firstName,
-                lastName,
-                email,
-                phone,
-                dob,
-                gender,
-                appointmentDate,
-                department,
-                doctorFirstName,
-                doctorLastName,
-                hasVisitedBoolean,
-                address)
-            // const response = await axios.post(`${BaseUrl}/appointment/post-appointment`,
-            //     {
-            //         firstName,
-            //         lastName,
-            //         email,
-            //         phone,
-            //         dob,
-            //         gender,
-            //         appointment_date: appointmentDate,
-            //         department,
-            //         doctor_firstName: doctorFirstName,
-            //         doctor_lastName: doctorLastName,
-            //         hasVisited: hasVisitedBoolean,
-            //         address,
-            //     },
-            //     {
-            //         withCredentials: true
-            //     }
-            // );
+            const response = await axios.post(`${BaseUrl}/appointment/post-appointment`,
+                {
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    dob,
+                    gender,
+                    appointment_date: appointmentDate,
+                    department,
+                    doctor_firstName: doctorFirstName,
+                    doctor_lastName: doctorLastName,
+                    hasVisited: hasVisitedBoolean,
+                    address,
+                },
+                {
+                    withCredentials: true
+                }
+            );
 
-            // if (response.data.success) {
-            //     toast.success(response?.data?.message);
-            // }
+            if (response.data.success) {
+                toast.success(response?.data?.message);
+                navigate("/");
+            }
 
         } catch (error) {
             console.log(error);
@@ -218,7 +208,7 @@ const AppointmentForm = () => {
                             {
                                 departmentsArray.map((department, index) => {
                                     return (
-                                        <option key={department + index} value={department}>{department}</option>
+                                        <option key={index} value={department}>{department}</option>
                                     )
                                 })
                             }
@@ -234,7 +224,7 @@ const AppointmentForm = () => {
                         id="doctors"
                         value={`${doctorFirstName} ${doctorLastName}`}
                         onChange={(e) => {
-                            const [firstName, lastName] = e.target.value.split("+");
+                            const [firstName, lastName] = e.target.value.split(".");
 
                             setDoctorFirstName(firstName);
                             setDoctorLastName(lastName)
@@ -247,7 +237,7 @@ const AppointmentForm = () => {
                                 .map((doctor, index) => {
                                     console.log(doctor.firstName, doctor.lastName)
                                     const doctorFullName = `${doctor.firstName} ${doctor.lastName}`;
-                                    const doctorValue = `${doctor.firstName}+${doctor.lastName}`;
+                                    const doctorValue = `${doctor.firstName}.${doctor.lastName}`;
 
                                     return (
                                         <option key={index} value={doctorValue}>
