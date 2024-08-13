@@ -235,7 +235,6 @@ const AppointmentForm = () => {
                         {
                             doctors.filter((doctor) => doctor.doctorDepartment === department)
                                 .map((doctor, index) => {
-                                    console.log(doctor.firstName, doctor.lastName)
                                     const doctorFullName = `${doctor.firstName} ${doctor.lastName}`;
                                     const doctorValue = `${doctor.firstName}.${doctor.lastName}`;
 

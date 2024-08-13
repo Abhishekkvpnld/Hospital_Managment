@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cloudinaryConfig from "./config/cloudinary.js";
 import messageRoute from "./routes/messageRoute.js";
-import {errorMiddlewares} from "./middlewares/errorMiddleware.js"
+import { errorMiddlewares } from "./middlewares/errorMiddleware.js";
 import userRoute from "./routes/userRoute.js";
 import appointmentRoute from "./routes/appointmentRoute.js";
 
@@ -17,7 +17,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL,"http://localhost:5173"],
+    origin: [
+      process.env.FRONTEND_URL,
+      process.env.DASHBOARD_URL,
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
@@ -26,16 +31,17 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(fileUpload({
-    useTempFiles:true,
-    tempFileDir:"/tmp/"
-}));
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  })
+);
 
 //Routes
-app.use("/api/v1/message",messageRoute);
-app.use("/api/v1/user",userRoute);
-app.use("/api/v1/appointment",appointmentRoute);
-
+app.use("/api/v1/message", messageRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/appointment", appointmentRoute);
 
 app.get("/", (req, res) => {
   res.send("server running...🚀");
@@ -52,4 +58,3 @@ dbConnection().then((res) => {
     console.log(`Server running on port ${PORT} 🚀`);
   });
 });
-
