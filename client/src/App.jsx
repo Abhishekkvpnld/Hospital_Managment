@@ -7,9 +7,36 @@ import Register from './pages/Register';
 import About from './pages/About';
 import Appointment from './pages/Appointment';
 import Navbar from './components/Navbar';
+import { useContext } from 'react';
+import { context } from './main';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { BaseUrl } from './utils/api';
 
 
 function App() {
+
+  const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(context);
+
+  useEffect(() => {
+
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(`${BaseUrl}/user/patient/me`, { withCredentials: true });
+        if (response?.data?.success) {
+          setIsAuthenticated(true);
+          setUser(response?.data?.data);
+        }
+      } catch (error) {
+        console.log(error);
+        setIsAuthenticated(false);
+        setUser({});
+      }
+    }
+
+    fetchUser();
+
+  }, [isAuthenticated]);
 
   return (
     <>

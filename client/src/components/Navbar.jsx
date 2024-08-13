@@ -22,6 +22,7 @@ const Navbar = () => {
             if (response?.data?.success) {
                 toast.success(response?.data?.message);
                 setIsAuthenticated(false);
+                navigate("/")
             }
 
         } catch (error) {
@@ -40,7 +41,7 @@ const Navbar = () => {
                 <div className="links">
                     <Link className="link" to={"/"}>HOME</Link>
                     <Link className="link" to={"/appointment"}>APPOINTMENT</Link>
-                    <Link className="link" to={"/about"}>ABOUT US</Link>
+                    <Link className="link" to={"/"}>ABOUT US</Link>
                 </div>
 
                 {isAuthenticated ? (<button className="nav_btn" onClick={handleLogOut}>LOGOUT</button>) : (<button className="nav_btn" onClick={() => navigate("/login")}>LOGIN</button>)}

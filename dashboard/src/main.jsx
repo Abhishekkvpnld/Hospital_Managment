@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-const context = createContext({ isAdminAuthenticated: false });
+export const context = createContext({ isAdminAuthenticated: false });
 
 const AppWrapper = () => {
 
