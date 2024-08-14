@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useContext, useState } from 'react'
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { BaseUrl } from '../utils/api';
 import { context } from '../main';
 import "./register.css";
@@ -41,7 +41,7 @@ const Register = () => {
   }
 
   if (isAuthenticated) {
-    return navigate("/");
+    return <Navigate to={"/"} />;
   }
 
   return (
