@@ -19,13 +19,13 @@ const SideBar = () => {
 
   const navigate = useNavigate();
 
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(context);
+  const { isAdminAuthenticated, setIsAdminAuthenticated, setUser } = useContext(context);
   const [show, setShow] = useState(false);
 
 
   useEffect(() => {
     const checkAuthentication = () => {
-      if (!isAuthenticated) {
+      if (!isAdminAuthenticated) {
         navigate("/login");
       }
     }
@@ -39,8 +39,8 @@ const SideBar = () => {
 
       if (response?.data?.success) {
         toast.success(response?.data?.message);
-        setIsAuthenticated(false);
-        navigate("/")
+        setIsAdminAuthenticated(false);
+        navigate("/login")
       }
 
     } catch (error) {
@@ -52,23 +52,28 @@ const SideBar = () => {
 
   const handleGoHome = () => {
     navigate("/");
+    setShow(false);
   };
 
   const handleGetDoctor = async () => {
     navigate("/doctors");
+    setShow(false);
   };
 
 
   const handleAddNewDoctor = async () => {
     navigate("/doctor/addNew");
+    setShow(false);
   };
 
   const handleAddNewAdmin = async () => {
     navigate("/admin/addNew");
+    setShow(false);
   };
 
   const handleGetMessages = async () => {
     navigate("/messages");
+    setShow(false);
   };
 
   return (
@@ -76,20 +81,21 @@ const SideBar = () => {
 
       <div className='admin_nav_container'>
 
-        <div style={!isAuthenticated ? { display: "none" } : { display: "flex", alignItems: 'center', justifyContent: "space-between", padding: "15px" }} className='admin_wrapper'>
+        <div style={!isAdminAuthenticated ? { display: "none" } : { display: "flex", alignItems: 'center', justifyContent: "space-between", padding: "15px" }} className='admin_wrapper'>
           <img src={dashboardImg} title='Admin_Dashboard' alt="dashboard" style={{ width: "40px", height: "40px" }} />
-          <GiHamburgerMenu style={{ width: "30px", height: "35px", cursor: "pointer", color: "grey" }} onClick={() => setShow(!show)} />
+          <GiHamburgerMenu className='menu_icon' style={{ width: "30px", height: "35px", cursor: "pointer", color: "black" }} onClick={() => setShow(!show)} />
         </div>
 
         {
           show && (
 
             <nav
-              style={!isAuthenticated ? { display: "none" } : { position: "absolute", top: "0", width: "150px", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", backgroundColor: "red" }}
+              style={!isAdminAuthenticated ? { display: "none" } : { position: "absolute", top: "0", left: "0", width: "150px", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", backgroundColor: "red" }}
               className={show ? "show_admin_sidebar" : "admin_sidebar"}
             >
 
               <div className="dashboard_links">
+                <h1 style={{ color: "white" }}>Admin</h1>
                 <IoHomeOutline title='Home' className='dashboard_icon' onClick={handleGoHome} />
                 <FaUserDoctor title='Doctors' className='dashboard_icon' onClick={handleGetDoctor} />
                 <TiMessages title='Messages' className='dashboard_icon' onClick={handleGetMessages} />

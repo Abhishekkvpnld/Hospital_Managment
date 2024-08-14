@@ -1,5 +1,5 @@
 import './App.css';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashBoard from './components/DashBoard';
@@ -16,7 +16,7 @@ import { context } from './main';
 
 function App() {
 
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(context);
+  const { isAdminAuthenticated, setIsAdminAuthenticated, setUser } = useContext(context);
 
   useEffect(() => {
 
@@ -24,19 +24,19 @@ function App() {
       try {
         const response = await axios.get(`${BaseUrl}/user/admin/me`, { withCredentials: true });
         if (response?.data?.success) {
-          setIsAuthenticated(true);
+          setIsAdminAuthenticated(true);
           setUser(response?.data?.data);
         }
       } catch (error) {
         console.log(error);
-        setIsAuthenticated(false);
+        setIsAdminAuthenticated(false);
         setUser({});
       }
     }
 
     fetchUser();
 
-  }, [isAuthenticated]);
+  }, [isAdminAuthenticated]);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import "./login.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { context } from "../main";
@@ -9,21 +9,22 @@ import { BaseUrl } from "../utils/baseurl";
 const Login = () => {
 
   const navigate = useNavigate();
-  const { isAuthenticated, setIsAuthenticated } = useContext(context);
+  const { isAdminAuthenticated, setIsAdminAuthenticated } = useContext(context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, role: "Admin" }, { withCredentials: true });
+      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, confirmPassword, role: "Admin" }, { withCredentials: true });
 
       if (response?.data?.success) {
         toast.success(response?.data?.message);
-        setIsAuthenticated(true);
+        setIsAdminAuthenticated(true);
         navigate("/");
       }
 
@@ -34,16 +35,16 @@ const Login = () => {
 
   }
 
-  if (isAuthenticated) {
-    return navigate("/")
+  if (isAdminAuthenticated) {
+    return <Navigate to={"/"} />
   }
 
   return (
     <div className="admin_login_container">
 
       <h1 className="admin_admin_login_title">SIGN IN</h1>
+      <p style={{ color: "red" }}>Only Admin Are Allowed To Access These Resources *</p>
 
-<p style={{color:"red"}}>Only Admin Are Allowed To Access These Resources *</p>
       <form className="admin_login_form" onSubmit={handleLogin} >
 
         <div className="inp_div">
@@ -69,6 +70,19 @@ const Login = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <div className="inp_div">
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            className="admin_login_inp"
+            type="password"
+            placeholder="Enter Confirm Password..."
+            name="confirmPassword"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
 
