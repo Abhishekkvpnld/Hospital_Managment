@@ -1,0 +1,46 @@
+.doctor_page_details {
+  height: 100vh;
+  width: 100%;
+  background-color: #f1f5f9;
+  padding: 20px;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns:repeat(4,1fr) ;
+    gap: 5px;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 0.8;
+    max-width: 270px;
+    padding: 8px;
+    max-height: 350px;
+}
+
+.doc_profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.doc_profile h3{
+color: rgb(100, 100, 100);
+}
+
+.doc_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.doc_details {
+    margin-left: 20px;
+    font-weight: 500;
+    color: rgb(45, 45, 45);
+    line-height: 0.8;
+    font-size: small;
+}

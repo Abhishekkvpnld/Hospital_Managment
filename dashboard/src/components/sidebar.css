@@ -29,6 +29,16 @@
   transform: scale(1.2);
 }
 
+.home_btn_icon{
+  width: 35px;
+  height: 25px;
+}
+
+.home_btn_icon:hover{
+  color: rgb(134, 128, 128);
+  cursor: pointer;
+}
+
 .dashboard_icon-logout{
   width: 35px;
   height: 35px;
