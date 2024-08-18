@@ -101,7 +101,7 @@ const SideBar = () => {
                 <TiMessages title='Messages' className='dashboard_icon' onClick={handleGetMessages} />
                 <MdOutlineAdminPanelSettings title='Add Admin' className='dashboard_icon' onClick={handleAddNewAdmin} />
                 <IoPersonAdd title='Add Doctor' className='dashboard_icon' onClick={handleAddNewDoctor} />
-                <IoIosLogOut title='Logout' className='dashboard_icon' onClick={handleLogOut} />
+                <IoIosLogOut title='Logout' className='dashboard_icon-logout' onClick={handleLogOut} />
               </div>
 
             </nav>

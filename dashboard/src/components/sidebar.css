@@ -29,6 +29,18 @@
   transform: scale(1.2);
 }
 
+.dashboard_icon-logout{
+  width: 35px;
+  height: 35px;
+  color: rgb(27, 7, 7);
+  transition: all;
+}
+
+.dashboard_icon-logout:hover {
+  color: rgb(241, 64, 10);
+  transform: scale(1.2);
+}
+
 .admin_wrapper {
   display: flex;
   align-items: center;

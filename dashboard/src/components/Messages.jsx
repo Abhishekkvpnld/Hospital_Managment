@@ -50,7 +50,10 @@ const Messages = () => {
                   <p>Last Name : <span>{message?.lastName}</span></p>
                   <p>Email : <span>{message?.email}</span></p>
                   <p>Phone : <span>{message?.phone}</span></p>
-                  <p>Message : <span>{message?.message}</span></p>
+                  <p>Message :</p>
+                  <div className='message_area'>
+                    <span >{message?.message}</span>
+                  </div>
                 </div>
               ))
             }
