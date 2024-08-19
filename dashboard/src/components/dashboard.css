@@ -1,0 +1,144 @@
+.dashboard {
+  width: 100%;
+  padding: 10px;
+  height: 100vh;
+  background-color: #f1f5f9;
+}
+
+.dashboard_banner {
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  height: 200px;
+  background-color: rgb(220, 217, 216);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.first_box {
+  padding: 10px;
+  flex: 2;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.second_box {
+  flex: 1;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  margin: 15px;
+  background-color: rgb(5, 12, 69);
+}
+
+.second_box h2 {
+  font-size: medium;
+  color: white;
+}
+
+.second_box div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f5f6f7;
+  width: 100px;
+  height: 100px;
+}
+
+.first_box img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.content {
+}
+
+.dashboard_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_user :first-child {
+  color: white;
+  margin-right: 5px;
+}
+
+.dashboard_description {
+  font-size: small;
+}
+
+.dashboard_table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_table h3 {
+  font-size: larger;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: rgb(86, 83, 83);
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+.value-pending {
+  color: rgb(202, 93, 10);
+  font-size: medium;
+  font-weight: 500;
+  padding: 3px;
+  border: none;
+  background-color: rgb(251, 251, 251);
+  border-radius: 4px;
+}
+
+.value-rejected {
+  color: rgb(198, 7, 7);
+}
+
+.value-accepted {
+  color: green;
+}
+
+.table-body td{
+      color: grey;
+      font-weight: 500;
+}
+
+@media (max-width: 976px) {
+  .dashboard_banner {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard_banner {
+    background-color: #f1f5f9;
+  }
+}
+
+@media (max-width: 576px) {
+}
+
+@media (max-width: 372px) {
+}

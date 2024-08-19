@@ -32,8 +32,7 @@ const Doctors = () => {
   if (!isAdminAuthenticated) {
     return <Navigate to={"/login"} />
   }
-
-  console.log(doctors)
+  
 
   return (
     <section className="doctor_page_details">
@@ -55,7 +54,7 @@ const Doctors = () => {
                     <p> <span style={{fontWeight:"bold"}}>Email :</span> {doc?.email}</p>
                     <p> <span style={{fontWeight:"bold"}}>Phone :</span> {doc?.phone}</p>
                     <p> <span style={{fontWeight:"bold"}}>DOB :</span> {doc?.dob.substring(0,10)}</p>
-                    <p style={{ textDecoration: "underline", color: "blue"}}> <span style={{fontWeight:"bold"}}>Department :</span> {doc?.doctorDepartment}</p>
+                    <p style={{ color: "blue"}}> <span style={{fontWeight:"bold"}}>Department :</span> {doc?.doctorDepartment}</p>
                     <p style={{fontWeight:"bold"}}><span>Gender : </span>{doc?.gender}</p>
                   </div>
                 </div>
