@@ -94,7 +94,7 @@ export const getAllAppointments = catchAsyncError(async (req, res, next) => {
 });
 
 export const updateAppointmentStatus = catchAsyncError(
-  async (req, res, next) => {
+  async (req, res, next) => { 
     const { id } = req.params;
     let appointment = await AppointmentModel.findById(id);
     if (!appointment) {
