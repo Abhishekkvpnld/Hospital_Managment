@@ -83,9 +83,13 @@ const SideBar = () => {
 
         <div style={!isAdminAuthenticated ? { display: "none" } : { display: "flex", alignItems: 'center', justifyContent: "space-between", padding: "15px" }} className='admin_wrapper'>
           <img src={dashboardImg} title='Admin_Dashboard' alt="dashboard" style={{ width: "40px", height: "40px" }} />
+          
+          <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"35px"}}>
           <IoHomeOutline title='Home' className='home_btn_icon'  onClick={handleGoHome} />
           <GiHamburgerMenu className='menu_icon' style={{ width: "30px", height: "35px", cursor: "pointer", color: "black" }} onClick={() => setShow(!show)} />
-        </div>
+          </div>
+
+           </div>
 
         {
           show && (
