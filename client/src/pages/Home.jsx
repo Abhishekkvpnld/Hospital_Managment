@@ -3,7 +3,7 @@ import Biography from '../components/Biography';
 import Departments from '../components/Departments';
 import MessageForm from '../components/MessageForm';
 import Institute from '../components/Institute';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
