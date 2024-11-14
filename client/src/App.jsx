@@ -16,7 +16,7 @@ import { BaseUrl } from './utils/api';
 
 function App() {
 
-  const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(context);
 
   useEffect(() => {
 

@@ -13,7 +13,7 @@ router.get("/patient/me",patientAuth,getUserDetails);
 router.get("/patient/logout",patientAuth,patientLogout);
 
 //Admin
-router.post("/addNewDoctor")
+router.post("/addNewDoctor",adminAuth,addNewDoctor);
 router.post("/admin/addNew",adminAuth,addNewAdmin);
 router.get("/admin/me",adminAuth,getUserDetails);
 router.get("/admin/logout",adminAuth,adminLogout);
