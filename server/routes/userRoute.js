@@ -14,7 +14,7 @@ router.get("/patient/logout",patientAuth,patientLogout);
 
 //Admin
 router.post("/addNewDoctor",adminAuth,addNewDoctor);
-router.post("/admin/addNew",adminAuth,addNewAdmin);
+router.post("/admin/addNew",addNewAdmin);
 router.get("/admin/me",adminAuth,getUserDetails);
 router.get("/admin/logout",adminAuth,adminLogout);
 router.post("/doctor/addNew",adminAuth,addNewDoctor);

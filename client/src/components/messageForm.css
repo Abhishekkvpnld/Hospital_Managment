@@ -1,92 +1,121 @@
-.message_container {
-    height: 100%;
-    background-color: white;
-    padding: 1rem;
-    text-align: center;
+/* Container */
+.messgae_container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Title */
+.message_title {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Form */
 .message_form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 20px;
 }
 
+/* Input Containers */
 .message_input {
-  width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 15px;
 }
 
-.input {
-  width: 300px;
-  margin: 5px;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 10px;
-}
-
+/* Inputs and Textarea */
+.input,
 .message_text {
-  width: 500px;
-  padding: 10px;
-  resize: none;
-  border-radius: 5px;
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+/* Input Focus Effect */
+.input:focus,
+.message_text:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Textarea */
+.message_text {
+  resize: none;
+}
+
+/* Button */
 .message_btn {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 20px;
-  border-radius: 5px;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  color: slategray;
-  border: 1px solid green;
-  color: white;
-  background-color: blue;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
 }
 
 .btn:hover {
-  background-color: green;
+  background: #0056b3;
+  transform: translateY(-2px);
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {  
-    
-      .input {
-        width: 150px;
-      }
-    
-      .message_text{
-        width: 300px;
-      }  
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media only screen and (max-width: 320px) {
-
-    .message_title{
-        font-size: x-large;
-    }
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .messgae_container {
+    padding: 20px;
+    margin: 20px;
+  }
 
   .message_input {
-    display: flex;
-    gap: 5px;
     flex-direction: column;
+    gap: 10px;
   }
 
-  .input {
-    width: 200px;
-    margin: 0%;
+  .input,
+  .message_text {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 
-  .message_text{
-    width: 200px;
+  .btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .message_title {
+    font-size: 1.5rem;
   }
 }

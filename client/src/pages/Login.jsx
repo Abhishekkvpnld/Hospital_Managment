@@ -11,16 +11,15 @@ const Login = () => {
   const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated } = useContext(context);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("user@gmail.com");
+  const [password, setPassword] = useState("User@123");
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, confirmPassword, role: "Patient" }, { withCredentials: true });
+      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, role: "Patient" }, { withCredentials: true });
 
       if (response?.data?.success) {
         toast.success(response?.data?.message);
@@ -72,18 +71,6 @@ const Login = () => {
           />
         </div>
 
-        <div className="inp_div">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            className="login_inp"
-            type="password"
-            placeholder="Enter Confirm Password..."
-            name="confirmPassword"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
 
         <div className="button_div" style={{ width: "100%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
           <button type="submit" className="login_btn" >LOGIN</button>

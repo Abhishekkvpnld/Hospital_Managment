@@ -11,9 +11,9 @@ const Login = () => {
   const navigate = useNavigate();
   const { isAdminAuthenticated, setIsAdminAuthenticated } = useContext(context);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("Admin@gmail.com");
+  const [password, setPassword] = useState("Admin@123");
+  const [confirmPassword, setConfirmPassword] = useState("Admin@123");
 
 
   const handleLogin = async (e) => {

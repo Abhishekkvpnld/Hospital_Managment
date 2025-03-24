@@ -26,7 +26,7 @@ const Footer = () => {
                 <div className="footer-section contact">
                     <h3>Contact Us</h3>
                     <p>Email: contact@healthcareapp.com</p>
-                    <p>Phone: +91 8234 567 890</p>
+                    <p>Phone: +91 8234 123 450</p>
                     <p>Address: 123 Health Street, Health City, 12345</p>
                 </div>
             </div>
