@@ -1,60 +1,105 @@
+/* Sidebar Container */
 .admin_nav_container {
-  position: relative;
-  background-color: aliceblue;
-}
-
-.menu_icon:hover {
-  color: black;
-}
-
-.dashboard_links {
-  background-color: rgb(118, 124, 124);
-  display: flex;
   width: 100%;
-  height: 100%;
-  margin: 0%;
+  position: relative;
+  background: #f4f4f4;
+  padding: 10px 20px;
+  display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard_icon {
-  width: 35px;
-  height: 35px;
-  color: rgb(27, 7, 7);
-  transition: all;
-}
-
-.dashboard_icon:hover {
-  color: rgb(16, 201, 229);
-  transform: scale(1.2);
-}
-
-.home_btn_icon{
-  width: 35px;
-  height: 25px;
-}
-
-.home_btn_icon:hover{
-  color: rgb(134, 128, 128);
-  cursor: pointer;
-}
-
-.dashboard_icon-logout{
-  width: 35px;
-  height: 35px;
-  color: rgb(27, 7, 7);
-  transition: all;
-}
-
-.dashboard_icon-logout:hover {
-  color: rgb(241, 64, 10);
-  transform: scale(1.2);
-}
-
+/* Admin Wrapper */
 .admin_wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 15px;
+  width: 100%;
+}
+
+/* Dashboard Links */
+.dashboard_links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #007bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard_links h1 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Icons */
+.dashboard_icon, .dashboard_icon-logout {
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.dashboard_icon:hover, .dashboard_icon-logout:hover {
+  color: #ffcc00;
+  transform: scale(1.1);
+}
+
+.dashboard_icon-logout {
+  color: #dc3545;
+}
+
+/* Menu Icon */
+.menu_icon {
+  color: #007bff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Sidebar Navigation */
+.show_admin_sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #007bff;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Home Button Icon */
+.home_btn_icon {
+  color: #007bff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.home_btn_icon:hover {
+  color: #ffcc00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin_nav_container {
+    padding: 10px;
+  }
+
+  .dashboard_links {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .dashboard_icon, .dashboard_icon-logout {
+    font-size: 20px;
+  }
 }

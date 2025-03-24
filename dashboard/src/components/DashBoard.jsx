@@ -33,12 +33,12 @@ const DashBoard = () => {
 
   const handleChangeStatus = async (appointmentId, statusValue) => {
     try {
-      const response = await axios.put(`${BaseUrl}/appointment/update-status/${appointmentId}`, { status:statusValue }, { withCredentials: true });
+      const response = await axios.put(`${BaseUrl}/appointment/update-status/${appointmentId}`, { status: statusValue }, { withCredentials: true });
       if (response?.data?.success) {
         setAppointments((prev) =>
           prev.map((appointment) =>
             appointment._id === appointmentId ?
-              { ...appointment, status:statusValue } : appointment
+              { ...appointment, status: statusValue } : appointment
           )
         )
         toast.success(response?.data?.message);
@@ -69,14 +69,16 @@ const DashBoard = () => {
           </div>
         </div>
 
-        <div className="second_box">
-          <h2>Total Appointments</h2>
-          <div><span>1500</span></div>
-        </div>
+        <div className="boxes">
+          <div className="second_box">
+            <h2>Total Appointments</h2>
+            <div><span>150</span></div>
+          </div>
 
-        <div className="second_box">
-          <h2>Registered Doctors</h2>
-          <div><span>250</span></div>
+          <div className="second_box">
+            <h2>Registered Doctors</h2>
+            <div><span>20</span></div>
+          </div>
         </div>
       </div>
 
