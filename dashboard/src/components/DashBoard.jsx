@@ -56,6 +56,7 @@ const DashBoard = () => {
   return (
     <section className="dashboard">
       <div className="dashboard_banner">
+
         <div className="first_box">
           <img src={"./doctor-icon.avif"} alt="docImg" />
           <div className="content">
@@ -72,7 +73,7 @@ const DashBoard = () => {
         <div className="boxes">
           <div className="second_box">
             <h2>Total Appointments</h2>
-            <div><span>150</span></div>
+            <div><span>{appointments?.length}</span></div>
           </div>
 
           <div className="second_box">

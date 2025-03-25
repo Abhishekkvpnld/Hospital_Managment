@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 100px;
 }
 
 .appointment_container h1 {

@@ -86,7 +86,7 @@ const SideBar = () => {
           
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"35px"}}>
           <IoHomeOutline title='Home' className='home_btn_icon'  onClick={handleGoHome} />
-          <GiHamburgerMenu className='menu_icon' style={{ width: "30px", height: "35px", cursor: "pointer", color: "black" }} onClick={() => setShow(!show)} />
+          <GiHamburgerMenu className='menu_icon' style={{ width: "25px", height: "25px", cursor: "pointer", color: "black" ,marginRight:"50px"}} onClick={() => setShow(!show)} />
           </div>
 
            </div>

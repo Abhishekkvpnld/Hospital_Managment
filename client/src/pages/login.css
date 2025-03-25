@@ -7,8 +7,8 @@
   align-items: center;
 }
 
-.login_title{
-    color: rgb(52, 55, 55);
+.login_title {
+  color: rgb(52, 55, 55);
 }
 
 .login_form {
@@ -18,7 +18,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 .login_inp {
   padding: 8px;
@@ -39,33 +38,42 @@
 }
 
 .inp_div label {
-    font-weight: 500;
+  font-weight: 500;
 }
 
-.login_btn{
-    padding: 8px 20px;
-    border: none;
-    border-radius :5px;
-    background-color: rgb(21, 162, 21);
-    color: white;
+.login_btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(21, 162, 21);
+  color: white;
 }
 
-.login_btn:hover{
-    background-color: rgb(19, 119, 19);
-    cursor: pointer;
+.login_btn:hover {
+  background-color: rgb(19, 119, 19);
+  cursor: pointer;
 }
 
+.password_div {
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+
+.showPassword {
+  position: absolute;
+  right: 10px;
+}
 
 @media (max-width: 768px) {
-    
+}
+
+@media (max-width: 576px) {
+  .login_inp {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid grey;
+    width: 250px;
   }
-  
-  @media (max-width: 576px) {
-    .login_inp {
-        padding: 8px;
-        border-radius: 3px;
-        border: 1px solid grey;
-        width: 250px;
-      }
-      
-    }
+}

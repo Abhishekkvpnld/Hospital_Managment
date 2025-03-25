@@ -11,16 +11,15 @@ const Login = () => {
   const navigate = useNavigate();
   const { isAdminAuthenticated, setIsAdminAuthenticated } = useContext(context);
 
-  const [email, setEmail] = useState("Admin@gmail.com");
+  const [email, setEmail] = useState("admin@gmail.com");
   const [password, setPassword] = useState("Admin@123");
-  const [confirmPassword, setConfirmPassword] = useState("Admin@123");
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, confirmPassword, role: "Admin" }, { withCredentials: true });
+      const response = await axios.post(`${BaseUrl}/user/login`, { email, password, role: "Admin" }, { withCredentials: true });
 
       if (response?.data?.success) {
         toast.success(response?.data?.message);
@@ -70,19 +69,6 @@ const Login = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <div className="inp_div">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            className="admin_login_inp"
-            type="password"
-            placeholder="Enter Confirm Password..."
-            name="confirmPassword"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
 

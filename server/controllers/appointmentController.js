@@ -135,3 +135,15 @@ export const deleteAppointment = catchAsyncError(async (req, res, next) => {
     message: "Appointment Deleted Successfully🗑️✅",
   });
 });
+
+
+export const countAppointment = catchAsyncError(async (req,res,next)=>{
+
+  let count = await AppointmentModel.countDocuments();
+
+  res.status(200).json({
+    success: true,
+    data:count,
+    error: false,
+  });
+})

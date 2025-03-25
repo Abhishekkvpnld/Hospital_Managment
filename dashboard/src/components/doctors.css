@@ -1,5 +1,5 @@
 .doctor_page_details {
-  height: 100vh;
+ min-height: 100vh;
   width: 100%;
   background-color: #f1f5f9;
   padding: 10px;
@@ -48,7 +48,7 @@ color: rgb(100, 100, 100);
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .banner {
     display: grid;
     grid-template-columns:repeat(3,1fr) ;
@@ -56,7 +56,7 @@ color: rgb(100, 100, 100);
 }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 720px) {
   .banner {
     display: grid;
     grid-template-columns:repeat(2,1fr) ;
@@ -65,7 +65,7 @@ color: rgb(100, 100, 100);
 }
 
 
-@media (max-width: 372px) {
+@media (max-width: 500px) {
   .banner {
     display: grid;
     grid-template-columns:repeat(1,1fr) ;

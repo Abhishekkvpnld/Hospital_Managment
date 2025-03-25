@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./login.css";
 import { context } from "../main";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BaseUrl } from "../utils/api";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("user@gmail.com");
   const [password, setPassword] = useState("User@123");
+  const [show, setShow] = useState(false);
 
 
   const handleLogin = async (e) => {
@@ -34,9 +36,10 @@ const Login = () => {
 
   }
 
-  if (isAuthenticated) {
-    return navigate("/")
-  }
+  useEffect(() => {
+    if (isAuthenticated) navigate("/");
+  }, [isAuthenticated]);
+
 
   return (
     <div className="login_container">
@@ -60,15 +63,18 @@ const Login = () => {
 
         <div className="inp_div">
           <label htmlFor="password">Password</label>
-          <input
-            className="login_inp"
-            type="password"
-            placeholder="Enter Password..."
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password_div">
+            <input
+              className="login_inp"
+              type={`${show ? "text" : "password"}`}
+              placeholder="Enter Password..."
+              name="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {show ? <FaEye className="showPassword" onClick={() => setShow(!show)} /> : <FaEyeSlash onClick={() => setShow(!show)} className="showPassword" />}
+          </div>
         </div>
 
 
